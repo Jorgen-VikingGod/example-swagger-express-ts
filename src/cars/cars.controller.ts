@@ -20,7 +20,6 @@ import { CarsService } from './cars.service';
 @ApiPath({
     name: 'Cars',
     path: '/cars',
-    security: { apiKeyHeader: [] },
 })
 @controller('/cars')
 @injectable()
@@ -34,9 +33,6 @@ export class CarsController implements interfaces.Controller {
                 model: 'Car',
                 type: SwaggerDefinitionConstant.Response.Type.ARRAY,
             },
-        },
-        security: {
-            apiKeyHeader: [],
         },
         summary: 'Get cars list',
     })
@@ -63,6 +59,9 @@ export class CarsController implements interfaces.Controller {
                 model: 'Car',
             },
             400: { description: 'Parameters fail' },
+        },
+        security: {
+            apiKeyHeader: [],
         },
         summary: 'Post new car',
     })

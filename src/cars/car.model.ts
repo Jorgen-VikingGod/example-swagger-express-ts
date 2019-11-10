@@ -7,13 +7,12 @@ import { ApiModel, ApiModelProperty } from 'swagger-express-ts';
 export class CarModel {
     @ApiModelProperty({
         description: 'Id of car',
-        example: ['123456789', '12345'],
         required: true,
     })
     public id: string;
 
     @ApiModelProperty({
-        description: '',
+        description: 'Name of car',
         required: true,
     })
     public name: string;
@@ -23,4 +22,10 @@ export class CarModel {
         required: true,
     })
     public description: string;
+
+    @ApiModelProperty({
+        description: 'Version of car',
+        required: true,
+    })
+    public version: string;
 }

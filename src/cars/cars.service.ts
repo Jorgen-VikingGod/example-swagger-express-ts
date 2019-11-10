@@ -29,6 +29,22 @@ export class CarsService {
         return car;
     }
 
+    public deleteCarById(id: string): CarModel {
+        const item: CarModel = this.getCarById(id);
+        delete this.carsList[id];
+        return item;
+    }
+
+    public updateCarById(id: string, car: CarModel): CarModel {
+        for (let iCar = 0; iCar < this.carsList.length; iCar++) {
+            if (this.carsList[iCar].id === id) {
+                this.carsList[iCar] = car;
+                break;
+            }
+        }
+        return car;
+    }
+
     public getCarById(id: string): CarModel {
         return _.find(this.carsList, (car: CarModel) => {
             return _.isEqual(car.id, id);
